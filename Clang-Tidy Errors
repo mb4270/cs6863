@@ -9,39 +9,12 @@ warning: -lglib-2.0: 'linker' input unused [clang-diagnostic-unused-command-line
 packet-ppp.c:4345:10: note: Calling 'proto_tree_add_item'
     ti = proto_tree_add_item(tree, proto_pppmux, tvb, 0, -1, ENC_NA);
          ^
-./headers/fakefunctions.h:69:2: note: 'pi' declared without an initial value
-        proto_item *pi;
-        ^
-./headers/fakefunctions.h:70:2: note: Undefined or garbage value returned to caller
-        return pi;
-        ^
-./headers/fakefunctions.h:206:2: warning: Undefined or garbage value returned to caller [clang-analyzer-core.uninitialized.UndefReturn]
-        return mod;
-        ^
 packet-ppp.c:5514:17: note: Calling 'prefs_register_protocol'
     mp_module = prefs_register_protocol(proto_mp, NULL);
                 ^
-./headers/fakefunctions.h:205:2: note: 'mod' declared without an initial value
-        module_t *mod;
-        ^
-./headers/fakefunctions.h:206:2: note: Undefined or garbage value returned to caller
-        return mod;
-        ^
-./headers/fakefunctions.h:246:4: warning: Undefined or garbage value returned to caller [clang-analyzer-core.uninitialized.UndefReturn]
-        return fmtbuf;
-        ^
 packet-ppp.c:4253:9: note: Calling 'val_to_str_const'
         val_to_str_const(type, bap_vals, "Unknown"));
         ^
-./headers/fakefunctions.h:245:2: note: 'fmtbuf' declared without an initial value
-        gchar *fmtbuf;
-        ^
-./headers/fakefunctions.h:246:4: note: Undefined or garbage value returned to caller
-        return fmtbuf;
-        ^
-./headers/fakefunctions.h:270:10: warning: The left operand of '==' is a garbage value [clang-analyzer-core.UndefinedBinaryOperatorResult]
-        if (ret == 0) {
-                ^
 packet-ppp.c:4860:9: note: Assuming 'byte0' is equal to CHDLC_ADDR_UNICAST
     if (byte0 == CHDLC_ADDR_UNICAST || byte0 == CHDLC_ADDR_MULTICAST) {
         ^
@@ -50,15 +23,6 @@ packet-ppp.c:4860:37: note: Left side of '||' is true
                                     ^
 packet-ppp.c:4862:9: note: Calling 'call_dissector'
         call_dissector(chdlc_handle, tvb, pinfo, tree);
-        ^
-./headers/fakefunctions.h:269:2: note: 'ret' declared without an initial value
-        int ret;
-        ^
-./headers/fakefunctions.h:270:10: note: The left operand of '==' is a garbage value
-        if (ret == 0) {
-                ^
-./headers/fakefunctions.h:313:2: warning: Undefined or garbage value returned to caller [clang-analyzer-core.uninitialized.UndefReturn]
-        return a;
         ^
 packet-ppp.c:4037:9: note: Assuming 'tree' is null
     if (tree) {
@@ -69,15 +33,6 @@ packet-ppp.c:4037:5: note: Taking false branch
 packet-ppp.c:4045:10: note: Calling 'dissector_try_uint'
     if (!dissector_try_uint(ppp_subdissector_table, PPP_IP, next_tvb, pinfo,
          ^
-./headers/fakefunctions.h:312:2: note: 'a' declared without an initial value
-        gboolean a;
-        ^
-./headers/fakefunctions.h:313:2: note: Undefined or garbage value returned to caller
-        return a;
-        ^
-./headers/fakefunctions.h:321:2: warning: Undefined or garbage value returned to caller [clang-analyzer-core.uninitialized.UndefReturn]
-        return b;
-        ^
 packet-ppp.c:5085:9: note: Left side of '||' is false
     if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
         ^
@@ -135,12 +90,6 @@ packet-ppp.c:1574:5: note: Taking false branch
 packet-ppp.c:1576:12: note: Calling 'crc32_ccitt_tvb'
     return crc32_ccitt_tvb(tvbuff, len);
            ^
-./headers/fakefunctions.h:320:2: note: 'b' declared without an initial value
-        guint32 b;
-        ^
-./headers/fakefunctions.h:321:2: note: Undefined or garbage value returned to caller
-        return b;
-        ^
 ./headers/tvbuff.c:671:28: warning: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'tvb') [clang-analyzer-core.NullDereference]
         if (compute_offset_length(tvb->length, tvb->reported_length, offset, -1, &abs_offset, &abs_length, NULL)) {
                                   ^
