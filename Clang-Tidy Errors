@@ -1,0 +1,740 @@
+
+IGNORE ALL WARNINGS THAT CORRESPOND TO FAKEFUNCTIONS.H. THOSE ARE INVALID
+
+
+warning: -lglib-2.0: 'linker' input unused [clang-diagnostic-unused-command-line-argument]
+./headers/fakefunctions.h:70:2: warning: Undefined or garbage value returned to caller [clang-analyzer-core.uninitialized.UndefReturn]
+        return pi;
+        ^
+packet-ppp.c:4345:10: note: Calling 'proto_tree_add_item'
+    ti = proto_tree_add_item(tree, proto_pppmux, tvb, 0, -1, ENC_NA);
+         ^
+./headers/fakefunctions.h:69:2: note: 'pi' declared without an initial value
+        proto_item *pi;
+        ^
+./headers/fakefunctions.h:70:2: note: Undefined or garbage value returned to caller
+        return pi;
+        ^
+./headers/fakefunctions.h:206:2: warning: Undefined or garbage value returned to caller [clang-analyzer-core.uninitialized.UndefReturn]
+        return mod;
+        ^
+packet-ppp.c:5514:17: note: Calling 'prefs_register_protocol'
+    mp_module = prefs_register_protocol(proto_mp, NULL);
+                ^
+./headers/fakefunctions.h:205:2: note: 'mod' declared without an initial value
+        module_t *mod;
+        ^
+./headers/fakefunctions.h:206:2: note: Undefined or garbage value returned to caller
+        return mod;
+        ^
+./headers/fakefunctions.h:246:4: warning: Undefined or garbage value returned to caller [clang-analyzer-core.uninitialized.UndefReturn]
+        return fmtbuf;
+        ^
+packet-ppp.c:4253:9: note: Calling 'val_to_str_const'
+        val_to_str_const(type, bap_vals, "Unknown"));
+        ^
+./headers/fakefunctions.h:245:2: note: 'fmtbuf' declared without an initial value
+        gchar *fmtbuf;
+        ^
+./headers/fakefunctions.h:246:4: note: Undefined or garbage value returned to caller
+        return fmtbuf;
+        ^
+./headers/fakefunctions.h:270:10: warning: The left operand of '==' is a garbage value [clang-analyzer-core.UndefinedBinaryOperatorResult]
+        if (ret == 0) {
+                ^
+packet-ppp.c:4860:9: note: Assuming 'byte0' is equal to CHDLC_ADDR_UNICAST
+    if (byte0 == CHDLC_ADDR_UNICAST || byte0 == CHDLC_ADDR_MULTICAST) {
+        ^
+packet-ppp.c:4860:37: note: Left side of '||' is true
+    if (byte0 == CHDLC_ADDR_UNICAST || byte0 == CHDLC_ADDR_MULTICAST) {
+                                    ^
+packet-ppp.c:4862:9: note: Calling 'call_dissector'
+        call_dissector(chdlc_handle, tvb, pinfo, tree);
+        ^
+./headers/fakefunctions.h:269:2: note: 'ret' declared without an initial value
+        int ret;
+        ^
+./headers/fakefunctions.h:270:10: note: The left operand of '==' is a garbage value
+        if (ret == 0) {
+                ^
+./headers/fakefunctions.h:313:2: warning: Undefined or garbage value returned to caller [clang-analyzer-core.uninitialized.UndefReturn]
+        return a;
+        ^
+packet-ppp.c:4037:9: note: Assuming 'tree' is null
+    if (tree) {
+        ^
+packet-ppp.c:4037:5: note: Taking false branch
+    if (tree) {
+    ^
+packet-ppp.c:4045:10: note: Calling 'dissector_try_uint'
+    if (!dissector_try_uint(ppp_subdissector_table, PPP_IP, next_tvb, pinfo,
+         ^
+./headers/fakefunctions.h:312:2: note: 'a' declared without an initial value
+        gboolean a;
+        ^
+./headers/fakefunctions.h:313:2: note: Undefined or garbage value returned to caller
+        return a;
+        ^
+./headers/fakefunctions.h:321:2: warning: Undefined or garbage value returned to caller [clang-analyzer-core.uninitialized.UndefReturn]
+        return b;
+        ^
+packet-ppp.c:5085:9: note: Left side of '||' is false
+    if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
+        ^
+packet-ppp.c:5085:5: note: Taking false branch
+    if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
+    ^
+packet-ppp.c:5088:16: note: Left side of '||' is false
+    } else if ((tvb_memeql(tvb, 0, &buf1[1], sizeof(buf1) - 1) == 0) ||
+               ^
+packet-ppp.c:5088:12: note: Taking false branch
+    } else if ((tvb_memeql(tvb, 0, &buf1[1], sizeof(buf1) - 1) == 0) ||
+           ^
+packet-ppp.c:5107:16: note: Assuming the condition is true
+    } else if (tvb_get_guint8(tvb, 0) == 0x7e) {
+               ^
+packet-ppp.c:5107:12: note: Taking true branch
+    } else if (tvb_get_guint8(tvb, 0) == 0x7e) {
+           ^
+packet-ppp.c:5112:9: note: Calling 'dissect_ppp_hdlc_common'
+        dissect_ppp_hdlc_common(next_tvb, pinfo, tree);
+        ^
+packet-ppp.c:4826:9: note: Assuming 'byte0' is not equal to 255
+    if (byte0 == 0xff)
+        ^
+packet-ppp.c:4826:5: note: Taking false branch
+    if (byte0 == 0xff)
+    ^
+packet-ppp.c:4835:9: note: Assuming 'tree' is null
+    if (tree) {
+        ^
+packet-ppp.c:4835:5: note: Taking false branch
+    if (tree) {
+    ^
+packet-ppp.c:4846:16: note: Calling 'decode_fcs'
+    next_tvb = decode_fcs(tvb, fh_tree, ppp_fcs_decode, proto_offset);
+               ^
+packet-ppp.c:1591:5: note: Control jumps to 'case 2:'  at line 1648
+    switch (fcs_decode) {
+    ^
+packet-ppp.c:1654:13: note: Assuming 'reported_len' is >= 4
+        if (reported_len < 4) {
+            ^
+packet-ppp.c:1654:9: note: Taking false branch
+        if (reported_len < 4) {
+        ^
+packet-ppp.c:1660:16: note: Taking false branch
+        } else if (len < reported_len) {
+               ^
+packet-ppp.c:1686:26: note: Calling 'fcs32'
+            rx_fcs_exp = fcs32(tvb);
+                         ^
+packet-ppp.c:1574:5: note: Taking false branch
+    if (len == 0)
+    ^
+packet-ppp.c:1576:12: note: Calling 'crc32_ccitt_tvb'
+    return crc32_ccitt_tvb(tvbuff, len);
+           ^
+./headers/fakefunctions.h:320:2: note: 'b' declared without an initial value
+        guint32 b;
+        ^
+./headers/fakefunctions.h:321:2: note: Undefined or garbage value returned to caller
+        return b;
+        ^
+./headers/tvbuff.c:671:28: warning: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'tvb') [clang-analyzer-core.NullDereference]
+        if (compute_offset_length(tvb->length, tvb->reported_length, offset, -1, &abs_offset, &abs_length, NULL)) {
+                                  ^
+packet-ppp.c:3449:9: note: Assuming 'length' is > 2
+    if (length > 2) {
+        ^
+packet-ppp.c:3449:5: note: Taking true branch
+    if (length > 2) {
+    ^
+packet-ppp.c:3451:13: note: Calling 'tvb_format_text'
+            tvb_format_text(tvb, offset + 2, length - 2));
+            ^
+./headers/tvbuff.c:2228:2: note: Taking true branch
+        if ((ptr = ensure_contiguous(tvb, offset, size)) == NULL) {
+        ^
+./headers/tvbuff.c:2229:30: note: Passing value via 1st parameter 'tvb'
+                len = tvb_length_remaining(tvb, offset);
+                                           ^
+./headers/tvbuff.c:2229:9: note: Calling 'tvb_length_remaining'
+                len = tvb_length_remaining(tvb, offset);
+                      ^
+./headers/tvbuff.c:669:19: note: Assuming 'tvb' is null
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                         ^
+./headers/proto.h:130:13: note: expanded from macro 'DISSECTOR_ASSERT'
+  ((void) ((expression) ? (void)0 : \
+            ^
+./headers/tvbuff.c:669:23: note: Left side of '&&' is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                             ^
+./headers/tvbuff.c:669:2: note: Assuming the condition is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+        ^
+./headers/proto.h:131:4: note: expanded from macro 'DISSECTOR_ASSERT'
+   __DISSECTOR_ASSERT (expression, __FILE__, __LINE__))) \
+   ^
+./headers/proto.h:169:4: note: expanded from macro '__DISSECTOR_ASSERT'
+  (REPORT_DISSECTOR_BUG( \
+   ^
+./headers/proto.h:103:5: note: expanded from macro 'REPORT_DISSECTOR_BUG'
+  ((getenv("WIRESHARK_ABORT_ON_DISSECTOR_BUG") != NULL) ? \
+    ^
+./headers/tvbuff.c:669:2: note: '?' condition is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+        ^
+./headers/proto.h:131:4: note: expanded from macro 'DISSECTOR_ASSERT'
+   __DISSECTOR_ASSERT (expression, __FILE__, __LINE__))) \
+   ^
+./headers/proto.h:169:4: note: expanded from macro '__DISSECTOR_ASSERT'
+  (REPORT_DISSECTOR_BUG( \
+   ^
+./headers/proto.h:103:4: note: expanded from macro 'REPORT_DISSECTOR_BUG'
+  ((getenv("WIRESHARK_ABORT_ON_DISSECTOR_BUG") != NULL) ? \
+   ^
+./headers/tvbuff.c:671:28: note: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'tvb')
+        if (compute_offset_length(tvb->length, tvb->reported_length, offset, -1, &abs_offset, &abs_length, NULL)) {
+                                  ^
+./headers/tvbuff.c:774:9: warning: Access to field 'reported_length' results in a dereference of a null pointer (loaded from variable 'tvb') [clang-analyzer-core.NullDereference]
+        return tvb->reported_length;
+               ^
+packet-ppp.c:4615:34: note: Passing value via 1st parameter 'tvb'
+    length = tvb_reported_length(tvb);
+                                 ^
+packet-ppp.c:4615:14: note: Calling 'tvb_reported_length'
+    length = tvb_reported_length(tvb);
+             ^
+./headers/tvbuff.c:772:19: note: Assuming 'tvb' is null
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                         ^
+./headers/proto.h:130:13: note: expanded from macro 'DISSECTOR_ASSERT'
+  ((void) ((expression) ? (void)0 : \
+            ^
+./headers/tvbuff.c:772:23: note: Left side of '&&' is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                             ^
+./headers/tvbuff.c:772:2: note: Assuming the condition is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+        ^
+./headers/proto.h:131:4: note: expanded from macro 'DISSECTOR_ASSERT'
+   __DISSECTOR_ASSERT (expression, __FILE__, __LINE__))) \
+   ^
+./headers/proto.h:169:4: note: expanded from macro '__DISSECTOR_ASSERT'
+  (REPORT_DISSECTOR_BUG( \
+   ^
+./headers/proto.h:103:5: note: expanded from macro 'REPORT_DISSECTOR_BUG'
+  ((getenv("WIRESHARK_ABORT_ON_DISSECTOR_BUG") != NULL) ? \
+    ^
+./headers/tvbuff.c:772:2: note: '?' condition is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+        ^
+./headers/proto.h:131:4: note: expanded from macro 'DISSECTOR_ASSERT'
+   __DISSECTOR_ASSERT (expression, __FILE__, __LINE__))) \
+   ^
+./headers/proto.h:169:4: note: expanded from macro '__DISSECTOR_ASSERT'
+  (REPORT_DISSECTOR_BUG( \
+   ^
+./headers/proto.h:103:4: note: expanded from macro 'REPORT_DISSECTOR_BUG'
+  ((getenv("WIRESHARK_ABORT_ON_DISSECTOR_BUG") != NULL) ? \
+   ^
+./headers/tvbuff.c:774:9: note: Access to field 'reported_length' results in a dereference of a null pointer (loaded from variable 'tvb')
+        return tvb->reported_length;
+               ^
+./headers/tvbuff.c:887:39: warning: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'member_tvb') [clang-analyzer-core.NullDereference]
+        if (check_offset_length_no_exception(member_tvb->length, member_tvb->reported_length,
+                                             ^
+packet-ppp.c:5085:9: note: Left side of '||' is false
+    if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
+        ^
+packet-ppp.c:5085:5: note: Taking false branch
+    if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
+    ^
+packet-ppp.c:5088:16: note: Left side of '||' is false
+    } else if ((tvb_memeql(tvb, 0, &buf1[1], sizeof(buf1) - 1) == 0) ||
+               ^
+packet-ppp.c:5088:12: note: Taking false branch
+    } else if ((tvb_memeql(tvb, 0, &buf1[1], sizeof(buf1) - 1) == 0) ||
+           ^
+packet-ppp.c:5107:16: note: Calling 'tvb_get_guint8'
+    } else if (tvb_get_guint8(tvb, 0) == 0x7e) {
+               ^
+./headers/tvbuff.c:1176:8: note: Calling 'fast_ensure_contiguous'
+        ptr = fast_ensure_contiguous(tvb, offset, sizeof(guint8));
+              ^
+./headers/tvbuff.c:963:6: note: Left side of '||' is false
+        if (offset < 0 || !tvb->real_data) {
+            ^
+./headers/tvbuff.c:963:20: note: Assuming the condition is true
+        if (offset < 0 || !tvb->real_data) {
+                          ^
+./headers/tvbuff.c:963:2: note: Taking true branch
+        if (offset < 0 || !tvb->real_data) {
+        ^
+./headers/tvbuff.c:964:10: note: Calling 'ensure_contiguous'
+                return ensure_contiguous(tvb, offset, length);
+                       ^
+./headers/tvbuff.c:945:6: note: Calling 'ensure_contiguous_no_exception'
+        p = ensure_contiguous_no_exception(tvb, offset, length, &exception);
+            ^
+./headers/tvbuff.c:910:2: note: Taking false branch
+        if (!check_offset_length_no_exception(tvb->length, tvb->reported_length, offset, length,
+        ^
+./headers/tvbuff.c:919:2: note: Taking false branch
+        if (tvb->real_data) {
+        ^
+./headers/tvbuff.c:923:3: note: Control jumps to 'case TVBUFF_COMPOSITE:'  at line 930
+                switch(tvb->type) {
+                ^
+./headers/tvbuff.c:931:12: note: Calling 'composite_ensure_contiguous_no_exception'
+                                return composite_ensure_contiguous_no_exception(tvb, abs_offset, abs_length);
+                                       ^
+./headers/tvbuff.c:867:2: note: 'member_tvb' initialized to a null pointer value
+        tvbuff_t   *member_tvb = NULL;
+        ^
+./headers/tvbuff.c:878:14: note: Assuming 'i' is >= 'num_members'
+        for (i = 0; i < num_members; i++) {
+                    ^
+./headers/tvbuff.c:878:2: note: Loop condition is false. Execution continues on line 885
+        for (i = 0; i < num_members; i++) {
+        ^
+./headers/tvbuff.c:887:39: note: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'member_tvb')
+        if (check_offset_length_no_exception(member_tvb->length, member_tvb->reported_length,
+                                             ^
+./headers/tvbuff.c:1034:39: warning: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'member_tvb') [clang-analyzer-core.NullDereference]
+        if (check_offset_length_no_exception(member_tvb->length, member_tvb->reported_length, abs_offset - composite->start_offsets[i],
+                                             ^
+packet-ppp.c:4478:9: note: Assuming 'tree' is null
+    if (tree) {
+        ^
+packet-ppp.c:4478:5: note: Taking false branch
+    if (tree) {
+    ^
+packet-ppp.c:4493:5: note: Taking false branch
+    if (tree) {
+    ^
+packet-ppp.c:4543:17: note: Calling 'tvb_memdup'
+    ip_packet = tvb_memdup(tvb, 0, length);
+                ^
+./headers/tvbuff.c:1129:9: note: Calling 'tvb_memcpy'
+        return tvb_memcpy(tvb, duped, abs_offset, abs_length);
+               ^
+./headers/tvbuff.c:1086:6: note: Assuming the condition is false
+        if (tvb->real_data) {
+            ^
+./headers/tvbuff.c:1086:2: note: Taking false branch
+        if (tvb->real_data) {
+        ^
+./headers/tvbuff.c:1090:2: note: Control jumps to 'case TVBUFF_COMPOSITE:'  at line 1099
+        switch(tvb->type) {
+        ^
+./headers/tvbuff.c:1100:11: note: Calling 'composite_memcpy'
+                        return composite_memcpy(tvb, target, offset, length);
+                               ^
+./headers/tvbuff.c:1013:2: note: 'member_tvb' initialized to a null pointer value
+        tvbuff_t   *member_tvb = NULL;
+        ^
+./headers/tvbuff.c:1025:14: note: Assuming 'i' is >= 'num_members'
+        for (i = 0; i < num_members; i++) {
+                    ^
+./headers/tvbuff.c:1025:2: note: Loop condition is false. Execution continues on line 1032
+        for (i = 0; i < num_members; i++) {
+        ^
+./headers/tvbuff.c:1034:39: note: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'member_tvb')
+        if (check_offset_length_no_exception(member_tvb->length, member_tvb->reported_length, abs_offset - composite->start_offsets[i],
+                                             ^
+./headers/tvbuff.c:1084:22: warning: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'tvb') [clang-analyzer-core.NullDereference]
+        check_offset_length(tvb->length, tvb->reported_length, offset, (gint) length, &abs_offset, &abs_length);
+                            ^
+packet-ppp.c:4478:9: note: Assuming 'tree' is null
+    if (tree) {
+        ^
+packet-ppp.c:4478:5: note: Taking false branch
+    if (tree) {
+    ^
+packet-ppp.c:4493:5: note: Taking false branch
+    if (tree) {
+    ^
+packet-ppp.c:4543:17: note: Calling 'tvb_memdup'
+    ip_packet = tvb_memdup(tvb, 0, length);
+                ^
+./headers/tvbuff.c:1129:9: note: Calling 'tvb_memcpy'
+        return tvb_memcpy(tvb, duped, abs_offset, abs_length);
+               ^
+./headers/tvbuff.c:1086:6: note: Assuming the condition is false
+        if (tvb->real_data) {
+            ^
+./headers/tvbuff.c:1086:2: note: Taking false branch
+        if (tvb->real_data) {
+        ^
+./headers/tvbuff.c:1090:2: note: Control jumps to 'case TVBUFF_SUBSET:'  at line 1094
+        switch(tvb->type) {
+        ^
+./headers/tvbuff.c:1095:11: note: Calling 'tvb_memcpy'
+                        return tvb_memcpy(tvb->tvbuffs.subset.tvb, target,
+                               ^
+./headers/tvbuff.c:1070:19: note: Assuming 'tvb' is null
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                         ^
+./headers/proto.h:130:13: note: expanded from macro 'DISSECTOR_ASSERT'
+  ((void) ((expression) ? (void)0 : \
+            ^
+./headers/tvbuff.c:1070:19: note: Assuming pointer value is null
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                         ^
+./headers/proto.h:130:13: note: expanded from macro 'DISSECTOR_ASSERT'
+  ((void) ((expression) ? (void)0 : \
+            ^
+./headers/tvbuff.c:1070:23: note: Left side of '&&' is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                             ^
+./headers/tvbuff.c:1070:2: note: Assuming the condition is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+        ^
+./headers/proto.h:131:4: note: expanded from macro 'DISSECTOR_ASSERT'
+   __DISSECTOR_ASSERT (expression, __FILE__, __LINE__))) \
+   ^
+./headers/proto.h:169:4: note: expanded from macro '__DISSECTOR_ASSERT'
+  (REPORT_DISSECTOR_BUG( \
+   ^
+./headers/proto.h:103:5: note: expanded from macro 'REPORT_DISSECTOR_BUG'
+  ((getenv("WIRESHARK_ABORT_ON_DISSECTOR_BUG") != NULL) ? \
+    ^
+./headers/tvbuff.c:1070:2: note: '?' condition is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+        ^
+./headers/proto.h:131:4: note: expanded from macro 'DISSECTOR_ASSERT'
+   __DISSECTOR_ASSERT (expression, __FILE__, __LINE__))) \
+   ^
+./headers/proto.h:169:4: note: expanded from macro '__DISSECTOR_ASSERT'
+  (REPORT_DISSECTOR_BUG( \
+   ^
+./headers/proto.h:103:4: note: expanded from macro 'REPORT_DISSECTOR_BUG'
+  ((getenv("WIRESHARK_ABORT_ON_DISSECTOR_BUG") != NULL) ? \
+   ^
+./headers/tvbuff.c:1084:22: note: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'tvb')
+        check_offset_length(tvb->length, tvb->reported_length, offset, (gint) length, &abs_offset, &abs_length);
+                            ^
+./headers/tvbuff.c:1186:9: warning: Dereference of null pointer [clang-analyzer-core.NullDereference]
+        return pntohs(ptr);
+               ^
+./headers/pint.h:38:32: note: expanded from macro 'pntohs'
+                     ((guint16)*((const guint8 *)(p)+0)<<8|  \
+                               ^
+packet-ppp.c:5085:9: note: Left side of '||' is false
+    if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
+        ^
+packet-ppp.c:5085:5: note: Taking false branch
+    if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
+    ^
+packet-ppp.c:5088:16: note: Left side of '||' is false
+    } else if ((tvb_memeql(tvb, 0, &buf1[1], sizeof(buf1) - 1) == 0) ||
+               ^
+packet-ppp.c:5088:12: note: Taking false branch
+    } else if ((tvb_memeql(tvb, 0, &buf1[1], sizeof(buf1) - 1) == 0) ||
+           ^
+packet-ppp.c:5107:16: note: Assuming the condition is true
+    } else if (tvb_get_guint8(tvb, 0) == 0x7e) {
+               ^
+packet-ppp.c:5107:12: note: Taking true branch
+    } else if (tvb_get_guint8(tvb, 0) == 0x7e) {
+           ^
+packet-ppp.c:5112:9: note: Calling 'dissect_ppp_hdlc_common'
+        dissect_ppp_hdlc_common(next_tvb, pinfo, tree);
+        ^
+packet-ppp.c:4826:5: note: Taking false branch
+    if (byte0 == 0xff)
+    ^
+packet-ppp.c:4835:9: note: Assuming 'tree' is null
+    if (tree) {
+        ^
+packet-ppp.c:4835:5: note: Taking false branch
+    if (tree) {
+    ^
+packet-ppp.c:4847:5: note: Calling 'dissect_ppp_common'
+    dissect_ppp_common(next_tvb, pinfo, tree, fh_tree, ti, proto_offset);
+    ^
+packet-ppp.c:3907:14: note: Left side of '&&' is false
+    if (tree &&
+             ^
+packet-ppp.c:3915:5: note: Taking false branch
+    if (ppp_prot & PFC_BIT) {
+    ^
+packet-ppp.c:3920:20: note: Calling 'tvb_get_ntohs'
+        ppp_prot = tvb_get_ntohs(tvb, 0);
+                   ^
+./headers/tvbuff.c:1186:9: note: Dereference of null pointer
+        return pntohs(ptr);
+               ^
+./headers/pint.h:38:32: note: expanded from macro 'pntohs'
+                     ((guint16)*((const guint8 *)(p)+0)<<8|  \
+                               ^
+./headers/tvbuff.c:1874:22: warning: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'tvb') [clang-analyzer-core.NullDereference]
+        check_offset_length(tvb->length, tvb->reported_length, offset, 0, &abs_offset, &junk_length);
+                            ^
+packet-ppp.c:5085:9: note: Left side of '||' is false
+    if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
+        ^
+packet-ppp.c:5085:5: note: Taking true branch
+    if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
+    ^
+packet-ppp.c:5087:9: note: Calling 'dissect_ppp_raw_hdlc'
+        dissect_ppp_raw_hdlc(tvb, pinfo, tree);
+        ^
+packet-ppp.c:4948:9: note: Assuming 'tree' is null
+    if (tree) {
+        ^
+packet-ppp.c:4948:5: note: Taking false branch
+    if (tree) {
+    ^
+packet-ppp.c:4961:14: note: Calling 'tvb_find_guint8'
+    offset = tvb_find_guint8(tvb, 0, -1, 0x7e);
+             ^
+./headers/tvbuff.c:1878:2: note: Taking true branch
+        if (maxlength == -1) {
+        ^
+./headers/tvbuff.c:1894:6: note: Assuming the condition is false
+        if (tvb->real_data) {
+            ^
+./headers/tvbuff.c:1894:2: note: Taking false branch
+        if (tvb->real_data) {
+        ^
+./headers/tvbuff.c:1904:2: note: Control jumps to 'case TVBUFF_SUBSET:'  at line 1908
+        switch(tvb->type) {
+        ^
+./headers/tvbuff.c:1909:11: note: Calling 'tvb_find_guint8'
+                        return tvb_find_guint8(tvb->tvbuffs.subset.tvb,
+                               ^
+./headers/tvbuff.c:1872:19: note: Assuming 'tvb' is null
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                         ^
+./headers/proto.h:130:13: note: expanded from macro 'DISSECTOR_ASSERT'
+  ((void) ((expression) ? (void)0 : \
+            ^
+./headers/tvbuff.c:1872:23: note: Left side of '&&' is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                             ^
+./headers/tvbuff.c:1872:2: note: Assuming the condition is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+        ^
+./headers/proto.h:131:4: note: expanded from macro 'DISSECTOR_ASSERT'
+   __DISSECTOR_ASSERT (expression, __FILE__, __LINE__))) \
+   ^
+./headers/proto.h:169:4: note: expanded from macro '__DISSECTOR_ASSERT'
+  (REPORT_DISSECTOR_BUG( \
+   ^
+./headers/proto.h:103:5: note: expanded from macro 'REPORT_DISSECTOR_BUG'
+  ((getenv("WIRESHARK_ABORT_ON_DISSECTOR_BUG") != NULL) ? \
+    ^
+./headers/tvbuff.c:1872:2: note: '?' condition is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+        ^
+./headers/proto.h:131:4: note: expanded from macro 'DISSECTOR_ASSERT'
+   __DISSECTOR_ASSERT (expression, __FILE__, __LINE__))) \
+   ^
+./headers/proto.h:169:4: note: expanded from macro '__DISSECTOR_ASSERT'
+  (REPORT_DISSECTOR_BUG( \
+   ^
+./headers/proto.h:103:4: note: expanded from macro 'REPORT_DISSECTOR_BUG'
+  ((getenv("WIRESHARK_ABORT_ON_DISSECTOR_BUG") != NULL) ? \
+   ^
+./headers/tvbuff.c:1874:22: note: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'tvb')
+        check_offset_length(tvb->length, tvb->reported_length, offset, 0, &abs_offset, &junk_length);
+                            ^
+./headers/tvbuff.c:2000:22: warning: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'tvb') [clang-analyzer-core.NullDereference]
+        check_offset_length(tvb->length, tvb->reported_length, offset, 0, &abs_offset, &junk_length);
+                            ^
+packet-ppp.c:3301:12: note: Assuming 'length' is > 0
+    while (length > 0) {
+           ^
+packet-ppp.c:3301:5: note: Loop condition is true.  Entering loop body
+    while (length > 0) {
+    ^
+packet-ppp.c:3307:15: note: Assuming 'addr_type' is not equal to 1
+            ((addr_type == 1) ? "PSTN/ISDN" : "Other"), addr_type);
+              ^
+packet-ppp.c:3307:14: note: '?' condition is false
+            ((addr_type == 1) ? "PSTN/ISDN" : "Other"), addr_type);
+             ^
+packet-ppp.c:3310:32: note: Passing value via 1st parameter 'tvb'
+        addr_len = tvb_strsize(tvb, offset);
+                               ^
+packet-ppp.c:3310:20: note: Calling 'tvb_strsize'
+        addr_len = tvb_strsize(tvb, offset);
+                   ^
+./headers/tvbuff.c:1998:19: note: Assuming 'tvb' is null
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                         ^
+./headers/proto.h:130:13: note: expanded from macro 'DISSECTOR_ASSERT'
+  ((void) ((expression) ? (void)0 : \
+            ^
+./headers/tvbuff.c:1998:23: note: Left side of '&&' is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+                             ^
+./headers/tvbuff.c:1998:2: note: Assuming the condition is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+        ^
+./headers/proto.h:131:4: note: expanded from macro 'DISSECTOR_ASSERT'
+   __DISSECTOR_ASSERT (expression, __FILE__, __LINE__))) \
+   ^
+./headers/proto.h:169:4: note: expanded from macro '__DISSECTOR_ASSERT'
+  (REPORT_DISSECTOR_BUG( \
+   ^
+./headers/proto.h:103:5: note: expanded from macro 'REPORT_DISSECTOR_BUG'
+  ((getenv("WIRESHARK_ABORT_ON_DISSECTOR_BUG") != NULL) ? \
+    ^
+./headers/tvbuff.c:1998:2: note: '?' condition is false
+        DISSECTOR_ASSERT(tvb && tvb->initialized);
+        ^
+./headers/proto.h:131:4: note: expanded from macro 'DISSECTOR_ASSERT'
+   __DISSECTOR_ASSERT (expression, __FILE__, __LINE__))) \
+   ^
+./headers/proto.h:169:4: note: expanded from macro '__DISSECTOR_ASSERT'
+  (REPORT_DISSECTOR_BUG( \
+   ^
+./headers/proto.h:103:4: note: expanded from macro 'REPORT_DISSECTOR_BUG'
+  ((getenv("WIRESHARK_ABORT_ON_DISSECTOR_BUG") != NULL) ? \
+   ^
+./headers/tvbuff.c:2000:22: note: Access to field 'length' results in a dereference of a null pointer (loaded from variable 'tvb')
+        check_offset_length(tvb->length, tvb->reported_length, offset, 0, &abs_offset, &junk_length);
+                            ^
+packet-ppp.c:1602:37: warning: The left operand of '<' is a garbage value [clang-analyzer-core.UndefinedBinaryOperatorResult]
+        if (reported_len < 2 || len < 0) {
+                                    ^
+packet-ppp.c:5085:9: note: Left side of '||' is false
+    if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
+        ^
+packet-ppp.c:5085:5: note: Taking false branch
+    if ((tvb_memeql(tvb, 0, buf2, sizeof(buf2)) == 0) ||
+    ^
+packet-ppp.c:5088:16: note: Left side of '||' is false
+    } else if ((tvb_memeql(tvb, 0, &buf1[1], sizeof(buf1) - 1) == 0) ||
+               ^
+packet-ppp.c:5088:12: note: Taking false branch
+    } else if ((tvb_memeql(tvb, 0, &buf1[1], sizeof(buf1) - 1) == 0) ||
+           ^
+packet-ppp.c:5107:16: note: Assuming the condition is true
+    } else if (tvb_get_guint8(tvb, 0) == 0x7e) {
+               ^
+packet-ppp.c:5107:12: note: Taking true branch
+    } else if (tvb_get_guint8(tvb, 0) == 0x7e) {
+           ^
+packet-ppp.c:5112:9: note: Calling 'dissect_ppp_hdlc_common'
+        dissect_ppp_hdlc_common(next_tvb, pinfo, tree);
+        ^
+packet-ppp.c:4826:9: note: Assuming 'byte0' is not equal to 255
+    if (byte0 == 0xff)
+        ^
+packet-ppp.c:4826:5: note: Taking false branch
+    if (byte0 == 0xff)
+    ^
+packet-ppp.c:4835:9: note: Assuming 'tree' is null
+    if (tree) {
+        ^
+packet-ppp.c:4835:5: note: Taking false branch
+    if (tree) {
+    ^
+packet-ppp.c:4846:16: note: Calling 'decode_fcs'
+    next_tvb = decode_fcs(tvb, fh_tree, ppp_fcs_decode, proto_offset);
+               ^
+packet-ppp.c:1583:15: note: 'len' declared without an initial value
+    gint      len, reported_len;
+              ^
+packet-ppp.c:1591:5: note: Control jumps to 'case 1:'  at line 1597
+    switch (fcs_decode) {
+    ^
+packet-ppp.c:1602:13: note: Assuming 'reported_len' is >= 2
+        if (reported_len < 2 || len < 0) {
+            ^
+packet-ppp.c:1602:13: note: Left side of '||' is false
+        if (reported_len < 2 || len < 0) {
+            ^
+packet-ppp.c:1602:37: note: The left operand of '<' is a garbage value
+        if (reported_len < 2 || len < 0) {
+                                    ^
+packet-ppp.c:2695:13: warning: Value stored to 'subopt_tree' is never read [clang-analyzer-deadcode.DeadStores]
+            subopt_tree = proto_item_add_subtree(tso, *optp->subtree_index);
+            ^
+packet-ppp.c:2695:13: note: Value stored to 'subopt_tree' is never read
+            subopt_tree = proto_item_add_subtree(tso, *optp->subtree_index);
+            ^
+packet-ppp.c:2732:13: warning: Value stored to 'subopt_tree' is never read [clang-analyzer-deadcode.DeadStores]
+            subopt_tree = proto_item_add_subtree(tso, *optp->subtree_index);
+            ^
+packet-ppp.c:2732:13: note: Value stored to 'subopt_tree' is never read
+            subopt_tree = proto_item_add_subtree(tso, *optp->subtree_index);
+            ^
+packet-ppp.c:3494:5: warning: Value stored to 'offset' is never read [clang-analyzer-deadcode.DeadStores]
+    offset += 2;
+    ^
+packet-ppp.c:3494:5: note: Value stored to 'offset' is never read
+    offset += 2;
+    ^
+packet-ppp.c:3514:5: warning: Value stored to 'offset' is never read [clang-analyzer-deadcode.DeadStores]
+    offset += 2;
+    ^
+packet-ppp.c:3514:5: note: Value stored to 'offset' is never read
+    offset += 2;
+    ^
+packet-ppp.c:3535:5: warning: Value stored to 'offset' is never read [clang-analyzer-deadcode.DeadStores]
+    offset += 2;
+    ^
+packet-ppp.c:3535:5: note: Value stored to 'offset' is never read
+    offset += 2;
+    ^
+packet-ppp.c:3565:5: warning: Value stored to 'offset' is never read [clang-analyzer-deadcode.DeadStores]
+    offset += 2;
+    ^
+packet-ppp.c:3565:5: note: Value stored to 'offset' is never read
+    offset += 2;
+    ^
+packet-ppp.c:3622:5: warning: Value stored to 'offset' is never read [clang-analyzer-deadcode.DeadStores]
+    offset += 2;
+    ^
+packet-ppp.c:3622:5: note: Value stored to 'offset' is never read
+    offset += 2;
+    ^
+packet-ppp.c:3631:5: warning: Value stored to 'offset' is never read [clang-analyzer-deadcode.DeadStores]
+    offset += 2;
+    ^
+packet-ppp.c:3631:5: note: Value stored to 'offset' is never read
+    offset += 2;
+    ^
+packet-ppp.c:3681:5: warning: Value stored to 'offset' is never read [clang-analyzer-deadcode.DeadStores]
+    offset += 2;
+    ^
+packet-ppp.c:3681:5: note: Value stored to 'offset' is never read
+    offset += 2;
+    ^
+packet-ppp.c:3785:13: warning: Value stored to 'field_tree' is never read [clang-analyzer-deadcode.DeadStores]
+            field_tree = proto_item_add_subtree(tf, options_subtree_index);
+            ^
+packet-ppp.c:3785:13: note: Value stored to 'field_tree' is never read
+            field_tree = proto_item_add_subtree(tf, options_subtree_index);
+            ^
+packet-ppp.c:4016:17: warning: Value stored to 'field_tree' is never read [clang-analyzer-deadcode.DeadStores]
+                field_tree = proto_item_add_subtree(tf, ett_vsncp_options);
+                ^
+packet-ppp.c:4016:17: note: Value stored to 'field_tree' is never read
+                field_tree = proto_item_add_subtree(tf, ett_vsncp_options);
+                ^
+packet-ppp.c:4281:13: warning: Value stored to 'field_tree' is never read [clang-analyzer-deadcode.DeadStores]
+            field_tree = proto_item_add_subtree(tf, ett_bap_options);
+            ^
+packet-ppp.c:4281:13: note: Value stored to 'field_tree' is never read
+            field_tree = proto_item_add_subtree(tf, ett_bap_options);
+            ^
+packet-ppp.c:5203:13: warning: Value stored to 'offset' is never read [clang-analyzer-deadcode.DeadStores]
+            offset += password_length;
+            ^
+packet-ppp.c:5203:13: note: Value stored to 'offset' is never read
+            offset += password_length;
+            ^
+packet-ppp.c:5219:13: warning: Value stored to 'offset' is never read [clang-analyzer-deadcode.DeadStores]
+            offset += message_length;
+            ^
+packet-ppp.c:5219:13: note: Value stored to 'offset' is never read
+            offset += message_length;
+            ^
