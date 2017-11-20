@@ -1,0 +1,5 @@
+Code https://samate.nist.gov/SRD/view_testcase.php?tID=231344
+
+Compile needed for with flags (the problem is with #include <glib.h>, the code cant find the file in my cpu)
+
+gcc packet-ppp.c -Wall `pkg-config --cflags --libs glib-2.0`
