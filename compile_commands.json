@@ -1,0 +1,6 @@
+[
+  	{ "directory": "/home/mbelfort/Documents/wireshark/SARD.2017-11-17-10-47-13/testcases/shared/94/epan",
+  		"command" : "gcc packet-ppp.c -Wall `pkg-config --cflags --libs glib-2.0`",
+    	"file": "packet-ppp.c" 
+	}
+]
