@@ -1,6 +1,6 @@
 [
-  	{ "directory": "/home/mbelfort/Documents/wireshark/cs6863",
-  		"command" : "gcc -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -lglib-2.0 packet-ppp.c",
+  	{ "directory": "/home/sachchidanand/Documents/Formal_project/code/cs6863",
+  		"command" : "gcc -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0 packet-ppp.c",
     	"file": "packet-ppp.c" 
 	}
 ]
