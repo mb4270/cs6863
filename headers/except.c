@@ -279,10 +279,9 @@ void except_rethrow(except_t *except)
     do_throw(except);
 }
 
-void except_throw(long group, long code, const char *msg)
+void except_trow(long group, long code, const char *msg)
 {
     except_t except;
-
     except.except_id.except_group = group;
     except.except_id.except_code = code;
     except.except_message = msg;
@@ -294,8 +293,8 @@ void except_throw(long group, long code, const char *msg)
     }
 #endif
 
-    do_throw(&except);
 }
+
 
 void except_throwd(long group, long code, const char *msg, void *data)
 {
@@ -375,7 +374,7 @@ void *except_alloc(size_t size)
     void *ptr = get_alloc()(size);
 
     if (ptr == 0)
-	except_throw(XCEPT_BAD_ALLOC, 0, "out of memory");
+	except_trow(XCEPT_BAD_ALLOC, 0, "out of memory");
     return ptr;
 }
 
@@ -401,7 +400,7 @@ static void bottom_level(void)
     fgets(buf, sizeof buf, stdin);
 
     if (buf[0] >= 0 && toupper(buf[0]) == 'Y')
-	except_throw(1, 1, "nasty exception");
+	except_trow(1, 1, "nasty exception");
 }
 
 static void top_level(void)
@@ -453,7 +452,7 @@ int main(int argc, char **argv)
 	}
     }
     except_try_pop();
-    except_throw(99, 99, "exception in main");
+    except_trow(99, 99, "exception in main");
     return 0;
 }
 
