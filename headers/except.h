@@ -94,7 +94,7 @@ extern struct except_stacknode *except_pop(void);
 extern int except_init(void);
 extern void except_deinit(void);
 extern void except_rethrow(except_t *) G_GNUC_NORETURN;
-extern void except_throw(long, long, const char *) G_GNUC_NORETURN;
+//extern void except_throw(long, long, const char *) G_GNUC_NORETURN;
 extern void except_throwd(long, long, const char *, void *) G_GNUC_NORETURN;
 extern void except_throwf(long, long, const char *, ...) G_GNUC_NORETURN;
 extern void (*except_unhandled_catcher(void (*)(except_t *)))(except_t *);
