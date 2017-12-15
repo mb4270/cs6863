@@ -163,7 +163,20 @@ proto_tree_add_bitmask(proto_tree *parent_tree, tvbuff_t *tvb,
 		       const gint ett, const int **fields,
 		       const guint encoding)
 {
-	proto_item        *item = NULL;
+	proto_item *item = NULL;
+	int len;
+
+		while (*fields) {
+		proto_tree_add_item(parent_tree, **fields, tvb, offset, len, encoding);
+		if (!item) {
+			fields++;
+			continue;
+		}
+		//hf = proto_registrar_get_nth(**fields);
+		fields++;
+	}
+
+
 	return item;
 }
 
@@ -396,4 +409,10 @@ void prefs_register_bool_preference(module_t *module, const char *name, const ch
 void prefs_register_uint_preference(module_t *module, const char *name, const char *title, const char *description, guint base, guint *var)
 {
 	
+}
+
+
+void except_throw(long l, long b, const char *abc)
+{
+
 }

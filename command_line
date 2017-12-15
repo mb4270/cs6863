@@ -1,2 +1,6 @@
 clang-tidy packet-ppp.c -- -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0
 
+cbmc packet-ppp.c --bounds-check --pointer-check
+
+cbmc packet-ppp.c -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -lglib-2.0
+cbmc -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include packet-ppp.c

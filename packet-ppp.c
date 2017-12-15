@@ -3141,10 +3141,15 @@ dissect_ccp_bsdcomp_opt(const ip_tcp_opt *optp, tvbuff_t *tvb, int offset,
         &hf_ccp_opt_vd_dict
     };
 
-    tf = proto_tree_add_text(tree, tvb, offset, length, "%s", optp->name);
-    field_tree = proto_item_add_subtree(tf, *optp->subtree_index);
-    dissect_ccp_opt_type_len(tvb, offset, field_tree, optp->name);
 
+    printf("Before tf\n");
+    tf = proto_tree_add_text(tree, tvb, offset, length, "%s", optp->name);
+    printf("Before field\n");
+    field_tree = proto_item_add_subtree(tf, 1);
+    printf("Before dissect\n");
+
+    dissect_ccp_opt_type_len(tvb, offset, field_tree, optp->name);
+    printf("Before add bitmask\n");
     proto_tree_add_bitmask(field_tree, tvb, offset + 2, hf_ccp_opt_vd,
         *optp->subtree_index, vd_fields, ENC_BIG_ENDIAN);
 }
@@ -6775,6 +6780,7 @@ proto_reg_handoff_iphc_crtp(void)
     dissector_add_uint("ethertype", PPP_RTP_CUDP8, cudp16_handle);
     dissector_add_uint("ethertype", PPP_RTP_CS, cs_handle);
 }
+
 
 int main(){
     return 0;
