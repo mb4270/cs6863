@@ -166,13 +166,16 @@ proto_tree_add_bitmask(proto_tree *parent_tree, tvbuff_t *tvb,
 	proto_item *item = NULL;
 	int len;
 
+		printf("Before while loop\n");
 		while (*fields) {
 		proto_tree_add_item(parent_tree, **fields, tvb, offset, len, encoding);
 		if (!item) {
+			printf( "Address of p: %p\n", *fields);
+			printf("Value in pointer: %d\n", **fields);
+			printf("Index: %d\n", index );
 			fields++;
 			continue;
 		}
-		//hf = proto_registrar_get_nth(**fields);
 		fields++;
 	}
 
