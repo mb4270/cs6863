@@ -5,14 +5,11 @@ cbmc packet-ppp.c --bounds-check --pointer-check
 cbmc packet-ppp.c -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -lglib-2.0
 cbmc -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include packet-ppp.c
 
-
-
 Code https://samate.nist.gov/SRD/view_testcase.php?tID=231344
 
 Compile flags needed (the problem is with #include <glib.h>, the code cant find the file in my cpu)
 
 gcc packet-ppp.c -Wall `pkg-config --cflags --libs glib-2.0`
-
 
  cbmc -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include packet-ppp.c --function dissect_ccp_bsdcomp_opt --bounds-check  --unwind 1
 

@@ -3139,28 +3139,26 @@ dissect_ccp_bsdcomp_opt(const ip_tcp_opt *optp, tvbuff_t *tvb, int offset,
 
     static const int* vd_fields[] = {
     	&hf_ccp_opt_vd_vers,
-    	&hf_ccp_opt_vd_dict
+    	&hf_ccp_opt_vd_dict,
     };
 
 
+/*
     printf("%p\n", vd_fields[0]);
     printf("%p\n", vd_fields[1]);
     printf("%p\n", vd_fields[2]);
-    printf("%p\n", vd_fields[3]);
     printf("%d\n", *vd_fields[0]);
     printf("%d\n", *vd_fields[1]);
     printf("%d\n", *vd_fields[2]); 
-    printf("%d\n", *vd_fields[3]);
   	
-    
-    //tf = proto_tree_add_text(tree, tvb, offset, length, "%s", optp->name);
-    //field_tree = proto_item_add_subtree(tf, 1);
-    //dissect_ccp_opt_type_len(tvb, offset, field_tree, optp->name);
-    //proto_tree_add_bitmask(field_tree, tvb, offset, hf_ccp_opt_vd,
-      //  optp->subtree_index, vd_fields, ENC_BIG_ENDIAN);
+*/  
+    tf = proto_tree_add_text(tree, tvb, offset, length, "%s", optp->name);
+    field_tree = proto_item_add_subtree(tf, 1);
+    dissect_ccp_opt_type_len(tvb, offset, field_tree, optp->name);
+    proto_tree_add_bitmask(field_tree, tvb, offset, hf_ccp_opt_vd,
+      optp->subtree_index, vd_fields, ENC_BIG_ENDIAN);
     
 
-   proto_tree_add_bitmask(field_tree, tvb, offset, hf_ccp_opt_vd, 3, vd_fields, ENC_BIG_ENDIAN);
 }
 
 /* http://tools.ietf.org/html/rfc1967 */

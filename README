@@ -1,6 +1,23 @@
-0x62067c
-0x620680
-0x620180
--1
--1
--1
+In order to recreate the project, the following commands must be run:
+
+pkg-config --cflags --libs glib-2.0
+
+The command above will give the locations of glib files. The output of such commands must be used to run the tools and let the compiler know of the path it needs to include. The output will look like this:
+
+ -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0
+
+To compile the code:
+
+gcc packet-ppp.c -Wall `pkg-config --cflags --libs glib-2.0`
+
+To run clang-tidy:
+The output of the first command will be referred to as “output” in the following instructions:
+clang-tidy packet-ppp.c -- output
+
+Alternatively, a compile database can be used to give the tool the right paths and directories.
+To run cbmc:
+ cbmc -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include packet-ppp.c --function dissect_ccp_bsdcomp_opt --bounds-check  --unwind 1
+
+In the case of cbmc, I added my output for the first command. This is because the last lglib string must be removed from the output of the first command. Otherwise the tool will not run. The --function flags indicates the entry point. The --bounds-check flags tells it to look for buffer overflows. The unwind flags tells the tool not to unwind loops.
+
+

@@ -172,7 +172,6 @@ proto_tree_add_bitmask(proto_tree *parent_tree, tvbuff_t *tvb,
 		if (!item) {
 			printf( "Address of p: %p\n", *fields);
 			printf("Value in pointer: %d\n", **fields);
-			printf("Index: %d\n", index );
 			fields++;
 			continue;
 		}
